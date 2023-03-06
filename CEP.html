@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>API-CEP</title>
+    </head>
+    <body class="corpo">
+        <header class="cabecalho">
+            <a href="index.html">Inicio</a>
+            <a href="indexDollar.html"> Dollar API</a>
+            <a href="CEP.html">CEP API</a>
+            <a href="tempo.html">Tempo API</a>
+            <a href="apiCreation.html">API Interna</a>
+            <a href="API.html">API Externo</a>
+        </header>
+        <main class="conteudo">
+            <div class="conteudo-cep">
+                <h1 class="titulo">Informe seu CEP e forneceremos o endereço completo</h1>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" autocomplete="off">
+                <br>
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" readonly>
+                <br>
+                <label for="bairro">Bairro</label>
+                <input type="text" id="bairro" readonly>
+                <br>
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" readonly>
+                <br>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" readonly>
+                <br>
+            </div>
+
+            <div>
+                <img src="imagens/Navigation-cuate.png" width="610px">
+            </div>
+        </main>
+
+        <footer>       
+            <h6> Minhas Redes sociais → </h6>
+            <a href="https://github.com/kevintaiyo"target="_blank"><img width="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" /></a>
+            <a href="https:/linkedin.com/in/kevin-taiyoo-3a07a925a/"target="_blank"><img width="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg " /></a>
+            <a href="https://www.instagram.com/kevin_koeke/"target="_blank"><img width="90px" src="imagens/icons8-instagram-750.png"></a>    
+         </footer>
+         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+    <script>
+        //preencher os inputs com arrow functions
+        const preencherFormulario = (endereco) => {
+        document.getElementById("rua").value = endereco.logradouro;
+        document.getElementById("bairro").value = endereco.bairro;
+        document.getElementById("cidade").value = endereco.localidade;
+        document.getElementById("estado").value = endereco.uf;
+    }
+    //autopreenchimento
+    const cepValido = (cep) => {
+        if (cep.length == 8) {
+            return true;
+        } else {
+            Swal.fire({
+                icon: 'Erro',
+                title: "Numero de caracteres inválido",
+                text: 'Insira um CEP Valido!',
+            })
+        }
+    }
+    //buscar API
+    //Com async e await podemos trabalhar com código assíncrono em um estilo mais parecido com o bom e velho código síncrono.
+    const pesquisarCep = async () => {
+        const cep = document.getElementById("cep").value;
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+        if (cepValido(cep)) {
+            const dados = await fetch(url);
+            const endereco = await dados.json();
+            preencherFormulario(endereco);
+        }
+    }
+    document.getElementById("cep").addEventListener("focusout", pesquisarCep);
+    </script>
+

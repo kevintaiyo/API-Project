@@ -1,0 +1,20 @@
+{   
+    "produto1":{
+        "name1": "The last of Us Part Remastered",
+        "price1": " Preço: R$ 150,00",
+        "imagem1": "<img width='415px' src='imagens/TLOU1.jpg'>"
+    },
+
+    "produto2":{
+        "name2": "The last Of Us Part 2",
+        "price2": " Preço: R$ 200,00",
+        "imagem2": "<img width='500px' src='imagens/TLOU2.jpg'>"
+    },
+
+    "produto3":{
+        "name3": "Resident Evil 7",
+        "price3": " Preço: R$ 120,00",
+        "imagem3": "<img width='415px' src='imagens/residentevil.jpg'>"
+    }
+    
+}

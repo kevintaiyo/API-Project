@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tempo</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="corpo">
+        <header class="cabecalho">
+            <a href="index.html">Inicio</a>
+            <a href="indexDollar.html"> Dollar API</a>
+            <a href="CEP.html">CEP API</a>
+            <a href="tempo.html">Tempo API</a>
+            <a href="apiCreation.html">API Interna</a>
+            <a href="API.html">API Externo</a>
+        </header>
+        
+        <main class="conteudo">
+            <div class="tempo-content">
+                <div class="imagens-tempo">
+                    <img src="imagens/Fall is coming-rafiki.png" width="600px">
+                </div>
+                <div class="informacoes">
+                    <center>
+                        <h1>Previsão do Tempo</h1>
+                        <h4>Veja o tempo de uma cidade.</h4><br>
+                    </center>
+                    <div class="itens">
+                        <p class="temperatura" id="temperatura">Carregando...</p><br>
+                        <input type="text" id="pesquisar"><br><br>
+                        <button class="pesquisa" onclick="getWeather()">Pesquisar</button><br>
+                    </div>
+                </div>
+                <div class="imagens-tempo">
+                    <img src="imagens/Fall is coming-pana.png" width="600px">
+                </div>
+            </div>
+        </main>
+        
+        <footer>           
+            <h6> Minhas Redes sociais → </h6>
+            <a href="https://github.com/kevintaiyo" target="_blank"><img width="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" /></a>
+            <a href="https:/linkedin.com/in/kevin-taiyoo-3a07a925a/" target="_blank"><img width="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg " /></a>
+            <a href="https://www.instagram.com/kevin_koeke/" target="_blank"><img width="90px" src="imagens/icons8-instagram-750.png"></a>
+         </footer>
+         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            //Bilbioteca Axios para realizar uma aquisição http a API da OpenWeatherMap e obter a previsao
+            //Esta linha define a funçao get weather como uma funçao assincrona, esperando uma resposta da API.
+            
+            async function getWeather(){
+                var newCidade = document.getElementById('pesquisar').value;
+                //Nesta linha fazendo uma chamada a api usando a biblioteca axios. a url da api inclui as informações de localização(Mogi das Cruzes), 
+                //a unidade de medida (Celsius) e chave api key.
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${newCidade}&units=metric&appid=64ed82577ced7f69cb1687f0ce536131`)
+                console.log(response)
+                //Resposta em graus celsius e a localização e armazenar na variavel tempCelsius
+                const tempCelsius = response.data.main.temp;
+                document.querySelector('#temperatura').innerHTML = `A temperatura atual na cidade de ${newCidade} é de ${tempCelsius.toFixed(2)}°C.`
+            }
+        </script>
+    </body>
+</html>

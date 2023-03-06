@@ -1,0 +1,175 @@
+*{
+    font-family: "Graphik-Regular", "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+a:hover{
+    transition: 2,0 all;
+    color: rgb(173, 175, 158);
+}
+
+a{
+    color:#fff ;
+}
+
+/* PAGINA PRINCIPAL INICIO */ 
+.cabecalho{ /* cabecalho vai server de base para todas as paginas */ 
+    display:flex;
+    justify-content: space-around;
+    background-color:#364555 ;
+    text-align: center;
+    font-size: 30px;
+    padding: 1.5rem;
+}
+
+.corpo{
+    background-color: #778899;
+    color: #fff;
+}
+
+.introducao{
+    text-align: justify;
+    font-size:20px;
+}
+
+.conteudo{
+    display: flex;
+    justify-content: space-around;
+    padding: 4em 4em 4em ;
+}
+
+footer{ /* o rodape (footer) vai server de base para todas as paginas */ 
+    display:flex;
+    justify-content: space-around;
+    background-color:#364555 ;
+    text-align: center;
+    font-size: 40px;
+    padding: 1.5rem;
+    border-radius: 2.5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* PAGINA PRINCIPAL FIM */
+
+/* CSS INDEXDOLLAR INICIO */
+.information{
+    display: flex;
+    font-size: 30px;
+    flex-direction: column;
+    padding:  30px 30px 30px 30px;
+    margin: 20px;
+}
+
+.titulo{
+    padding: 30px 30px 30px 30px;
+}
+
+.conteudo-dollar{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* CSS INDEXDOLLAR FIM */
+
+/* CSS CEP INICIO */
+.conteudo-cep{
+    display: flex;
+    flex-direction: column;
+    padding: 3em 3em 3em 4em;
+    align-items: center;
+}
+
+input{
+    border-radius: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: 8px;
+    text-decoration: none;
+    border-style: none;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+/* CSS CEP FIM */
+
+/* TEMPO INICIO CSS */
+.pesquisa{
+    padding: 8px 8px 8px 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ADD8E6;
+    color: #000000;
+}
+
+.pesquisa:hover{
+    background-color:#fff ;
+}
+
+.informacoes{
+    display: flex;
+    flex-direction: column;
+    padding: 3em 3em 3em 3em;
+    display: block;
+}
+.tempo-content{
+    display: flex;
+    justify-content: space-around;
+}
+.imagens-tempo{
+    padding: 10px 10px 10px 10px;
+}
+
+.temperatura{
+    font-size: 15px;
+    padding: none;
+    text-align: justify;
+}
+
+.itens{
+    display: flex;
+    flex-direction: column;
+}
+/* TEMPO FIM CSS */
+
+/* CSS API ARQUIVO EXTERNO INICIO */
+.conteudo-api{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 30px 30px 30px;
+}
+
+.caixa-produto{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.comprar{
+    border-radius: 10px;
+    background-color: azure;
+    border: none;
+    background-color: none;
+    padding: 10PX;
+}
+
+.comprar:hover{
+    background-color: #ADD8E6;
+}
+
+.imagens-games{
+    width: 100%;
+    height: 100%;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+}
+
+.imagens-games:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+/* CSS API ARQUIVO EXTERNO FIM */
